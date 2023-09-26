@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BlazorAgGrid
+﻿namespace BlazorAgGrid
 {
     /// <summary>
     /// Strongly-typed counterpart of:
