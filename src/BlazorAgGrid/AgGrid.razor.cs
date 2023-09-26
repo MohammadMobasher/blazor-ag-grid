@@ -8,7 +8,7 @@ namespace BlazorAgGrid
     {
         private static readonly JsonSerializerOptions AgGridJsonSerOptions = new JsonSerializerOptions
         {
-            IgnoreNullValues = true,
+            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };
 
@@ -80,11 +80,6 @@ namespace BlazorAgGrid
                 Callbacks = Callbacks,
                 Events = Events,
             };
-
-            ////Console.WriteLine("Raw       GridOpts: "
-            ////    + System.Text.Json.JsonSerializer.Serialize(Options));
-            ////Console.WriteLine("Sanitized GridOpts: "
-            ////    + System.Text.Json.JsonSerializer.Serialize(interopOptions));
 
             await JS.InvokeVoidAsync("blazor_ag_grid.createGrid", _gridDiv,
                 interopOptions, ConfigureScript);
