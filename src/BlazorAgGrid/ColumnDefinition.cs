@@ -23,5 +23,8 @@ namespace BlazorAgGrid
 
         [JsonPropertyName("editable")]
         public bool IsEditable { get; set; }
+
+        [JsonPropertyName("floatingFilter")]
+        public bool IsFloatingFilter { get; set; }
     }
 }
