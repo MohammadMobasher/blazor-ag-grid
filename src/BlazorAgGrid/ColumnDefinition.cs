@@ -32,5 +32,8 @@ namespace BlazorAgGrid
 
         [JsonPropertyName("maxWidth")]
         public string MaxWidth { get; set; } = string.Empty;
+
+        [JsonPropertyName("headerClass")]
+        public string HeaderClass { get; set; } = string.Empty;
     }
 }

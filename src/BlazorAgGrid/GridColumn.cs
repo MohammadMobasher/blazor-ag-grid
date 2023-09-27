@@ -18,6 +18,7 @@ namespace BlazorAgGrid
         [Parameter] public bool IsFiltered { get; set; }
         [Parameter] public bool IsEditable { get; set; }
         [Parameter] public bool IsFloatingFilter { get; set; }
+        [Parameter] public string HeaderClass { get; set; } = string.Empty;
 
         protected override void OnInitialized()
         {
@@ -32,6 +33,7 @@ namespace BlazorAgGrid
                 IsFloatingFilter = IsFloatingFilter,
                 Width = Width,
                 MaxWidth = MaxWidth,
+                HeaderClass = HeaderClass,
             }); ;
         }
     }

@@ -33,6 +33,7 @@ namespace BlazorAgGrid
         [Parameter] public GridCallbacks Callbacks { get; set; }
         [Parameter] public string ConfigureScript { get; set; }
         [Parameter] public bool IsSizeColumnsToFit { get; set; } = false;
+        [Parameter] public string CssClassForHeader { get; set; } = string.Empty;
 
         [Inject] private IJSRuntime JS { get; set; }
 
@@ -58,7 +59,11 @@ namespace BlazorAgGrid
                 Options = new GridOptions();
 
             if (_columnDefinitions?.Count > 0)
+            {
+                if(!string.IsNullOrEmpty(CssClassForHeader))
+                    _columnDefinitions.Where(x=> x.HeaderClass == string.Empty).ToList().ForEach(x => x.HeaderClass = CssClassForHeader);
                 Options.InternalColumnDefinitions = _columnDefinitions;
+            }
 
             if (_rowData?.Count > 0)
                 Options.InternalRowData = _rowData;

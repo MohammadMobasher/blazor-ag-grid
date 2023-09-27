@@ -32,6 +32,14 @@ namespace BlazorAgGrid
                 return CallApi("refreshCells", @params);
         }
 
+        //public Task AutoSizeColumnsSkipHeader()
+        //{
+        //    return CallApi("sizeColumnsToFit", new object 
+        //    { 
+
+        //    });
+        //}
+
         public Task RedrawRows(RedrawRowsParams @params = null)
         {
             if (@params == null)
