@@ -32,6 +32,7 @@ namespace BlazorAgGrid
         [Parameter] public GridEvents Events { get; set; }
         [Parameter] public GridCallbacks Callbacks { get; set; }
         [Parameter] public string ConfigureScript { get; set; }
+        [Parameter] public bool IsSizeColumnsToFit { get; set; } = false;
 
         [Inject] private IJSRuntime JS { get; set; }
 
@@ -45,6 +46,8 @@ namespace BlazorAgGrid
                 _isRendered = true;
                 await CreateGrid();
                 Api = new GridApi(JS, _id);
+                if(IsSizeColumnsToFit)
+                    await Api.SizeColumnsToFit();
                 ColumnApi = new GridColumnApi(JS, _id);
             }
         }
