@@ -13,6 +13,7 @@ namespace BlazorAgGrid
         [Parameter] public bool IsSortable { get; set; }
         [Parameter] public bool IsFiltered { get; set; }
         [Parameter] public bool IsEditable { get; set; }
+        [Parameter] public bool IsFloatingFilter { get; set; }
 
         protected override void OnInitialized()
         {
@@ -24,6 +25,7 @@ namespace BlazorAgGrid
                 IsSortable = IsSortable,
                 IsFiltered = IsFiltered,
                 IsEditable = IsEditable,
+                IsFloatingFilter = IsFloatingFilter,
             }); ;
         }
     }
