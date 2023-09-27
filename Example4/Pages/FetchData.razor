@@ -1,0 +1,110 @@
+﻿@page "/fetchdata"
+@inject HttpClient Http
+
+
+
+
+
+<AgGrid @ref="_agGrid" WidthStyle="100%" HeightStyle="300px" Options="op" Events="new GridEvents()">
+    <GridColumn Header="Make" Field="make" IsResizable="true" IsSortable="true" IsFiltered="true" IsFloatingFilter="true"/>
+    <GridColumn Header="Model" Field="model" IsResizable="true" IsSortable="true" IsFiltered="true" IsFloatingFilter="true" />
+    <GridColumn Header="Price" Field="price" IsResizable="true" IsSortable="true" IsFiltered="true" IsFloatingFilter="true" />
+
+    <GridRow Data="@(new { make = $"Toyota#{RenderCount()}", model = "Celica", price = 35000 })" />
+    <GridRow Data="@(new { make = $"Ford#{RenderCount()}", model = "Mondeo", price = 32000 })" />
+    <GridRow Data="@(new { make = $"Porsche#{RenderCount()}", model = "Boxter", price = 72000 })" />
+</AgGrid>
+
+
+
+
+@code {
+    private AgGrid _agGrid;
+    private GridOptions op;
+
+    private int renderCount = 0;
+
+    private int RenderCount()
+    {
+        return renderCount++;
+    }
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    protected override void OnInitialized()
+    {
+        op = new GridOptions
+            {
+                //Datasource = new PhotosDataSource { Http = Http },
+                EnablePagination = true,
+                EnableRowDeselection = true,
+                RowModelType = RowModelType.Infinite,
+                RowSelection = RowSelection.Single,
+                SuppressCellSelection = true,
+            };
+    }
+}
+
+
+
+
+@*
+<PageTitle>Weather forecast</PageTitle>
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+    }
+
+    public class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string? Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}*@
