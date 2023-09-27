@@ -1,6 +1,10 @@
 ﻿@using Microsoft.JSInterop
 @inject IJSRuntime FOO
 
+<style>
+
+</style>
+
 <CascadingValue Name="@nameof(GridOptions.ColumnDefinitions)" Value="@_columnDefinitions">
     <CascadingValue Name="@nameof(GridOptions.RowData)" Value="@_rowData">
         @ChildContent
@@ -10,5 +14,5 @@
 <div id="@(Guid.NewGuid())"
      @ref="_gridDiv"
      style="height: @(HeightStyle); width: @(WidthStyle);"
-     class="ag-theme-balham">
+     class="ag-theme-alpine">
 </div>
