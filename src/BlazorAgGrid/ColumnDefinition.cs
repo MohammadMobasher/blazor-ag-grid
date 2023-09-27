@@ -26,5 +26,11 @@ namespace BlazorAgGrid
 
         [JsonPropertyName("floatingFilter")]
         public bool IsFloatingFilter { get; set; }
+
+        [JsonPropertyName("width")]
+        public string Width { get; set; } = string.Empty;
+
+        [JsonPropertyName("maxWidth")]
+        public string MaxWidth { get; set; } = string.Empty;
     }
 }

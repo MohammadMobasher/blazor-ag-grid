@@ -9,6 +9,10 @@ namespace BlazorAgGrid
         
         [Parameter] public string Field { get; set; }
         [Parameter] public string Header { get; set; }
+
+        [Parameter] public string Width { get; set; }
+        [Parameter] public string MaxWidth { get; set; }
+
         [Parameter] public bool IsResizable { get; set; }
         [Parameter] public bool IsSortable { get; set; }
         [Parameter] public bool IsFiltered { get; set; }
@@ -26,6 +30,8 @@ namespace BlazorAgGrid
                 IsFiltered = IsFiltered,
                 IsEditable = IsEditable,
                 IsFloatingFilter = IsFloatingFilter,
+                Width = Width,
+                MaxWidth = MaxWidth,
             }); ;
         }
     }
