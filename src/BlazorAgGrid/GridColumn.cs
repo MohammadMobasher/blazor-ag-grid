@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System.Text.Json.Serialization;
 
 namespace BlazorAgGrid
 {
@@ -20,6 +21,8 @@ namespace BlazorAgGrid
         [Parameter] public bool IsFloatingFilter { get; set; }
         [Parameter] public string HeaderClass { get; set; } = string.Empty;
 
+        [Parameter] public CellDataType CellDataType { get; set; }
+
         protected override void OnInitialized()
         {
             ColumnDefinitions.Add(new ColumnDefinition
@@ -34,7 +37,19 @@ namespace BlazorAgGrid
                 Width = Width,
                 MaxWidth = MaxWidth,
                 HeaderClass = HeaderClass,
+                CellDataType = CellDataType,
             }); ;
         }
+    }
+
+
+    [JsonConverter(typeof(EnumConverter))]
+    public enum CellDataType
+    {
+        Text = 0,
+        Number = 1,
+        Boolean = 2,
+        Date = 3,
+        Object = 4
     }
 }

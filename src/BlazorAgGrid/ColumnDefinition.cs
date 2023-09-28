@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using Microsoft.AspNetCore.Components;
+using System.Text.Json.Serialization;
 
 namespace BlazorAgGrid
 {
@@ -35,5 +36,8 @@ namespace BlazorAgGrid
 
         [JsonPropertyName("headerClass")]
         public string HeaderClass { get; set; } = string.Empty;
+
+        [JsonPropertyName("cellDataType")]
+        public CellDataType CellDataType { get; set; }
     }
 }
