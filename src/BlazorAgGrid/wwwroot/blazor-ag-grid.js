@@ -166,6 +166,9 @@ window.blazor_ag_grid = {
                 blazor_ag_grid.callbackMap[callbackId] = getRowsParams;
                 getRowsParams.callbackId = callbackId;
                 //console.log("mapped callback ID for ds: " + callbackId + "; " + JSON.stringify(dsRef));
+                var newFilterModel = getRowsParams.filterModel;
+                Object.keys(newFilterModel).map(item => { newFilterModel[item] = newFilterModel[item].filter });
+                getRowsParams.stringFilterModel = JSON.stringify(newFilterModel);
                 ds.invokeMethodAsync('GetRows', getRowsParams);
             },
             destroy: function () {
