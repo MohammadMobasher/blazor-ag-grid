@@ -21,6 +21,9 @@ namespace BlazorAgGrid
         /// If paginationAutoPageSize is specified, this property is ignored.
         /// See example Customising Pagination.
         public int? PaginationPageSize { get; set; }
+
+        public int? CacheBlockSize { get; set; }
+
         /// True - The number of rows to load per page is automatically adjusted
         /// by ag-Grid so each page shows enough rows to just fill the area
         /// designated for the grid. False (Default) - paginationPageSize is used.
