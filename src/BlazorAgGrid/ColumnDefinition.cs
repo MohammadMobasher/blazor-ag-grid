@@ -37,6 +37,9 @@ namespace BlazorAgGrid
         [JsonPropertyName("headerClass")]
         public string HeaderClass { get; set; } = string.Empty;
 
+        [JsonPropertyName("suppressMenu")]
+        public bool SuppressMenu { get; set; }
+
         [JsonPropertyName("cellDataType")]
         public CellDataType CellDataType { get; set; }
     }

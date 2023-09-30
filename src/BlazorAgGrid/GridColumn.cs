@@ -20,6 +20,7 @@ namespace BlazorAgGrid
         [Parameter] public bool IsEditable { get; set; }
         [Parameter] public bool IsFloatingFilter { get; set; }
         [Parameter] public string HeaderClass { get; set; } = string.Empty;
+        [Parameter] public bool SuppressMenu { get; set; } = true;
 
         [Parameter] public CellDataType CellDataType { get; set; }
 
@@ -38,6 +39,7 @@ namespace BlazorAgGrid
                 MaxWidth = MaxWidth,
                 HeaderClass = HeaderClass,
                 CellDataType = CellDataType,
+                SuppressMenu = SuppressMenu,
             }); ;
         }
     }
