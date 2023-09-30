@@ -22,6 +22,8 @@
         //filterModel: any;
         object FilterModel { get; }
 
+        string StringFilterModel { get; }
+
         // The grid context object
         //context: any;
         object Context { get; }

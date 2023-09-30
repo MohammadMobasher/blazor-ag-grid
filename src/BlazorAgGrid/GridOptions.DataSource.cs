@@ -1,5 +1,9 @@
 ﻿using Microsoft.JSInterop;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace BlazorAgGrid
 {
@@ -75,6 +79,8 @@ namespace BlazorAgGrid
 
             public string CallbackId { get; set; }
 
+            public string StringFilterModel { get; set; }
+
             public Task FailCallback() =>
                 throw new NotImplementedException();
 
@@ -108,6 +114,7 @@ namespace BlazorAgGrid
             // If doing Server-side filtering, contains the filter model
             //filterModel: any;
             public object FilterModel => _inner.FilterModel;
+            public string StringFilterModel => _inner.StringFilterModel;
 
             // The grid context object
             //context: any;
