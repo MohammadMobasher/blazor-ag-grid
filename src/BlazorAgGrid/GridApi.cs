@@ -24,12 +24,23 @@ namespace BlazorAgGrid
             return CallApi("sizeColumnsToFit");
         }
 
+
+        public Task GetQuickFilter()
+        {
+            return CallApi("getQuickFilter");
+        }
+
         public Task RefreshCells(RefreshCellsParams @params = null)
         {
             if (@params == null)
                 return CallApi("refreshCells");
             else
                 return CallApi("refreshCells", @params);
+        }
+
+        public Task GetFilterInstance(string columnName)
+        {
+            return CallApi("getFilterInstance", columnName);
         }
 
         //public Task AutoSizeColumnsSkipHeader()
